@@ -1,4 +1,4 @@
-import JokeList from "../components/JokeLIst";
+import JokeList from "../components/deliveredJokeComponent/JokeList";
 
 const JokesPage = () => {
   return (

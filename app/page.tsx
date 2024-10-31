@@ -1,5 +1,4 @@
-import AuthForm from "./components/AuthForm";
-import JokeList from "./components/JokeLIst";
+import AuthForm from "./components/authComponent/AuthForm";
 
 const Home = () => {
   return (

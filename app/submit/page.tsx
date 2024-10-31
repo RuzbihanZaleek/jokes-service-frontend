@@ -1,4 +1,4 @@
-import JokeForm from "../components/JokeForm";
+import JokeForm from "../components/submittedJokeComponent/JokeForm";
 
 const SubmitPage = () => {
   return (
