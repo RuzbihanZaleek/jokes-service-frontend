@@ -12,3 +12,8 @@ export interface DeliveredJoke extends BaseJoke {
 export interface SubmittedJoke extends BaseJoke {
   _id: string;
 }
+
+export interface JokeFormProps {
+  url: string;
+  buttonText: string;
+}

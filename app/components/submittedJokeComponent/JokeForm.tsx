@@ -1,17 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { JOKE_TYPES, SUBMIT_API_BASE_URL } from "../../constants/apiConstants";
+import { JOKE_TYPES } from "../../constants/apiConstants";
 import { showAlert } from "@/app/utils/AlertUtil";
+import { JokeFormProps } from "@/app/types/joke";
 
-const JokeForm = () => {
+const JokeForm: React.FC<JokeFormProps> = ({ url, buttonText }) => {
   const [content, setContent] = useState<string>("");
   const [type, setType] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch(SUBMIT_API_BASE_URL, {
+      const response = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -80,7 +81,7 @@ const JokeForm = () => {
         ))}
       </select>
       <button type="submit" className="p-2 bg-green-500 text-white rounded">
-        Submit Joke
+        {buttonText}
       </button>
     </form>
   );

@@ -17,6 +17,7 @@ const Navbar = () => {
       {isAuthorized ? (
         <div className="flex ml-4 gap-4">
           <Link href="/submittedJokes">Submitted Jokes</Link>
+          <Link href="/addJoke">Add New Joke</Link>
           <Link href="/" onClick={logout}>
             Logout
           </Link>
