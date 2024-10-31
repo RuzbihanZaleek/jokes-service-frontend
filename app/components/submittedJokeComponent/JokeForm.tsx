@@ -40,12 +40,20 @@ const JokeForm = () => {
           icon: "error",
         });
       }
-    } catch (error: any) {
-      showAlert({
-        title: "Error!",
-        text: error.message || "An error occurred. Please try again.",
-        icon: "error",
-      });
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        showAlert({
+          title: "Error!",
+          text: error.message || "An error occurred. Please try again.",
+          icon: "error",
+        });
+      } else {
+        showAlert({
+          title: "Error!",
+          text: "An unexpected error occurred. Please try again.",
+          icon: "error",
+        });
+      }
     }
   };
 
