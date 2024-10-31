@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { API_ENDPOINTS } from "../constants/apiConstants";
+import { MODERATE_API_ENDPOINTS } from "../constants/apiConstants";
 
 const AuthForm = () => {
   const [username, setUsername] = useState("");
@@ -14,7 +14,7 @@ const AuthForm = () => {
     e.preventDefault();
     setErrorMessage("");
 
-    const response = await fetch(API_ENDPOINTS.LOGIN, {
+    const response = await fetch(MODERATE_API_ENDPOINTS.LOGIN, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
