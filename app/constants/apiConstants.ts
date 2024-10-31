@@ -11,7 +11,9 @@ const SUBMIT_API_ENDPOINTS = {
   JOKES_TYPES: `${SUBMIT_API_BASE_URL}/types`,
 };
 
-export const JOKE_TYPES = [
+const DELIVER_API_BASE_URL = "http://localhost:3002/jokes";
+
+const JOKE_TYPES = [
   "Pun",
   "One-liner",
   "Knock-Knock",
@@ -33,4 +35,6 @@ export {
   MODERATE_API_ENDPOINTS,
   SUBMIT_API_BASE_URL,
   SUBMIT_API_ENDPOINTS,
+  DELIVER_API_BASE_URL,
+  JOKE_TYPES,
 };
