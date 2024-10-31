@@ -11,5 +11,4 @@ export interface DeliveredJoke extends BaseJoke {
 // MongoDB Joke interface extending BaseJoke
 export interface SubmittedJoke extends BaseJoke {
   _id: string;
-  isDelivered: boolean;
 }
