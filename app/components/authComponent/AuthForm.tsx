@@ -4,11 +4,13 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { MODERATE_API_ENDPOINTS } from "../../constants/apiConstants";
 import { showAlert } from "@/app/utils/AlertUtil";
+import { useAuth } from "@/app/context/AuthContext";
 
 const AuthForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const { login } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +25,7 @@ const AuthForm = () => {
 
     if (response.ok) {
       const data = await response.json();
-      localStorage.setItem("token", data.token);
+      login(data.token);
       router.push("/submittedJokes");
     } else {
       const errorData = await response.json();
