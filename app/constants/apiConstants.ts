@@ -20,6 +20,7 @@ const JOKE_TYPES = [
   "Knock-Knock",
   "Dad Joke",
   "Dark Humor",
+  "Work Humor",
   "Political",
   "Animals",
   "Programming",
