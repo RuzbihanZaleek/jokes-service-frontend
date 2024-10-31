@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jokes Service Frontend
+
+This frontend application provides a user interface for interacting with the Jokes microservices. Built using **Next.js**, it allows users to submit jokes, view random jokes, and manage submissions through the moderation process.
+
+## Overview
+
+The Jokes Service Frontend communicates with three microservices:
+
+1. **Deliver Jokes Microservice**: Provides approved jokes based on user-selected types.
+2. **Moderate Jokes Microservice**: Enables moderators to approve, edit, or reject submitted jokes.
+3. **Submit Jokes Microservice**: Allows users to submit new jokes without requiring authentication.
+
+## Features
+
+- **User-Friendly Interface**: Intuitive UI for users to submit jokes and view delivered jokes.
+- **Joke Submission**: Users can submit jokes with selected types.
+- **Moderation Capabilities**: Moderators can review and manage jokes.
+- **Responsive Design**: Optimized for desktop and mobile devices.
+
+## Technologies Used
+
+- **Next.js**: Framework for server-rendered React applications.
+- **React**: JavaScript library for building user interfaces.
+- **Axios**: Promise-based HTTP client for making API requests.
+- **CSS Modules**: Scoped CSS for styling components.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v14 or higher)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/RuzbihanZaleek/jokes-service-frontend.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd jokes-service-frontend
+   ```
+4. Install dependencies:
+   ```bash
+   npm install
+   ```
+6. Start the development server:
+   ```bash
+   npm run dev
+   ```
+7. Open your browser and navigate to http://localhost:3003 to view the application.
+   
