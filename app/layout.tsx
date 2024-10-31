@@ -9,6 +9,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+       <head>
+        <title>Jokes Service</title>
+        <link rel="icon" href="/laugh.svg"/>
+      </head>
       <body>
         <AuthProvider>
           <Navbar />
