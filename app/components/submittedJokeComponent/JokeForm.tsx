@@ -28,7 +28,6 @@ const JokeForm = () => {
         setContent("");
         setType("");
       } else if (response.status === 409) {
-        const errorData = await response.json();
         showAlert({
           title: "Info!",
           text: "Joke already exists!",
@@ -41,10 +40,10 @@ const JokeForm = () => {
           icon: "error",
         });
       }
-    } catch (error) {
+    } catch (error: any) {
       showAlert({
         title: "Error!",
-        text: "An error occurred. Please try again.",
+        text: error.message || "An error occurred. Please try again.",
         icon: "error",
       });
     }

@@ -48,7 +48,7 @@ const JokeList = () => {
   useEffect(() => {
     fetchJokeTypes();
     fetchJokes(selectedType);
-  }, []);
+  }, [selectedType]);
 
   // Handle type change
   const handleTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
