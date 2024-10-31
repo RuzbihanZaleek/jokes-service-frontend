@@ -3,16 +3,15 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { MODERATE_API_ENDPOINTS } from "../../constants/apiConstants";
+import { showAlert } from "@/app/utils/AlertUtil";
 
 const AuthForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrorMessage("");
 
     const response = await fetch(MODERATE_API_ENDPOINTS.LOGIN, {
       method: "POST",
@@ -28,7 +27,11 @@ const AuthForm = () => {
       router.push("/submittedJokes");
     } else {
       const errorData = await response.json();
-      setErrorMessage(errorData.message || "Login failed. Please try again.");
+      showAlert({
+        title: "Error!",
+        text: errorData.message || "Login failed. Please try again.",
+        icon: "error",
+      });
     }
   };
 
@@ -50,7 +53,6 @@ const AuthForm = () => {
         required
         className="p-2 border border-gray-300 rounded"
       />
-      {errorMessage && <div className="text-red-500">{errorMessage}</div>}
       <button type="submit" className="p-2 bg-blue-500 text-white rounded">
         Login
       </button>
