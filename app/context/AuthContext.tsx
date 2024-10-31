@@ -12,7 +12,7 @@ import { AuthContextType } from "../types/auth";
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -39,6 +39,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     localStorage.removeItem("token");
     setIsAuthorized(false);
   };
+
+  // Handle the loading state
+  if (isAuthorized === null) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <AuthContext.Provider value={{ isAuthorized, login, logout }}>
