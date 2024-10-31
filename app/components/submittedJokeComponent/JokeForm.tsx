@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { JOKE_TYPES, SUBMIT_API_BASE_URL } from "../constants/apiConstants";
+import { useState } from "react";
+import { JOKE_TYPES, SUBMIT_API_BASE_URL } from "../../constants/apiConstants";
+import { showAlert } from "@/app/utils/AlertUtil";
 
 const JokeForm = () => {
   const [content, setContent] = useState<string>("");
   const [type, setType] = useState<string>("");
-  const [submissionStatus, setSubmissionStatus] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,17 +20,33 @@ const JokeForm = () => {
       });
 
       if (response.ok) {
-        setSubmissionStatus("Joke submitted successfully!");
+        showAlert({
+          title: "Success!",
+          text: "Joke submitted successfully!",
+          icon: "success",
+        });
         setContent("");
         setType("");
       } else if (response.status === 409) {
         const errorData = await response.json();
-        setSubmissionStatus(errorData.message || "Joke already exists.");
+        showAlert({
+          title: "Info!",
+          text: "Joke already exists!",
+          icon: "info",
+        });
       } else {
-        setSubmissionStatus("Failed to submit joke. Please try again.");
+        showAlert({
+          title: "Error!",
+          text: "Failed to submit joke. Please try again.",
+          icon: "error",
+        });
       }
     } catch (error) {
-      setSubmissionStatus("An error occurred. Please try again.");
+      showAlert({
+        title: "Error!",
+        text: "An error occurred. Please try again.",
+        icon: "error",
+      });
     }
   };
 
@@ -59,19 +75,6 @@ const JokeForm = () => {
       <button type="submit" className="p-2 bg-green-500 text-white rounded">
         Submit Joke
       </button>
-
-      {/* Show success message */}
-      {submissionStatus && (
-        <p
-          className={`mt-4 ${
-            submissionStatus.includes("successfully")
-              ? "text-green-600"
-              : "text-red-600"
-          }`}
-        >
-          {submissionStatus}
-        </p>
-      )}
     </form>
   );
 };

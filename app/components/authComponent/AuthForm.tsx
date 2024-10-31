@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { MODERATE_API_ENDPOINTS } from "../constants/apiConstants";
+import { MODERATE_API_ENDPOINTS } from "../../constants/apiConstants";
 
 const AuthForm = () => {
   const [username, setUsername] = useState("");
@@ -25,7 +25,7 @@ const AuthForm = () => {
     if (response.ok) {
       const data = await response.json();
       localStorage.setItem("token", data.token);
-      router.push("/jokes");
+      router.push("/submittedJokes");
     } else {
       const errorData = await response.json();
       setErrorMessage(errorData.message || "Login failed. Please try again.");
