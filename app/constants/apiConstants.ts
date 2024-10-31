@@ -3,6 +3,7 @@ const MODERATE_API_BASE_URL = "http://localhost:3001/moderateApi";
 const MODERATE_API_ENDPOINTS = {
   LOGIN: `${MODERATE_API_BASE_URL}/auth/login`,
   JOKES: `${MODERATE_API_BASE_URL}/jokes`,
+  APPROVE: `${MODERATE_API_BASE_URL}/jokes/approve`,
 };
 
 const SUBMIT_API_BASE_URL = "http://localhost:3000/jokes";
