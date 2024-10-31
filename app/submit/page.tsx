@@ -1,9 +1,12 @@
-const page = () => {
-  return (
-    <div>
-      Submit Page
-    </div>
-  )
-}
+import JokeForm from "../components/JokeForm";
 
-export default page
+const SubmitPage = () => {
+  return (
+    <div className="flex flex-col items-center space-y-4 w-full max-w-md mx-auto">
+      <h1 className="text-2xl font-bold">Submit a Joke</h1>
+      <JokeForm />
+    </div>
+  );
+};
+
+export default SubmitPage;
