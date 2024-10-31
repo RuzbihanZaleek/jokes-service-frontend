@@ -21,7 +21,7 @@ The Jokes Service Frontend communicates with three microservices:
 
 - **Next.js**: Framework for server-rendered React applications.
 - **React**: JavaScript library for building user interfaces.
-- **CSS Modules**: Scoped CSS for styling components.
+- **tailwind CSS**: CSS framework for styling components.
 
 ## Getting Started
 
